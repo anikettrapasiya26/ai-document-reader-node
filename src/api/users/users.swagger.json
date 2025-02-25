@@ -1,0 +1,288 @@
+{
+  "paths": {
+    "/detail": {
+      "get": {
+        "description": "Get patient detail",
+        "parameters": ["email"],
+        "tags": ["view_patient"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Authorization Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/user_detail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update_profile": {
+      "put": {
+        "description": "Update Employee with valid Email_id  ",
+        "parameters": [],
+        "tags": ["Patient_Update"],
+        "produces": ["application/json"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "description": "Email is required ",
+                    "type": "string"
+                  }
+                },
+                "required": ["email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authorization Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/employee_update"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/view_family": {
+      "get": {
+        "description": "view patient family member   ",
+        "parameters": [],
+        "tags": ["Patient_family"],
+        "produces": ["application/json"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Patient_id": {
+                    "description": "PatientId is required ",
+                    "type": "string"
+                  }
+                },
+                "required": ["patient_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Show Patient family member Successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Patient_Family"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "responses": {
+        "View_Patient": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "string",
+              "example": "true"
+            },
+            "message": {
+              "type": "string",
+              "example": "Patient data retrive successfully"
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "uuid": {
+                  "type": "string",
+                  "example": "8e6a6c9e-927e-47cd-b184-0b792539f370"
+                },
+                "first_name": {
+                  "type": "string",
+                  "example": "test"
+                },
+                "middle_name": {
+                  "type": "string",
+                  "example": "test2"
+                },
+                "last_name": {
+                  "type": "string",
+                  "example": "test1"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "test@gmail.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "age": {
+                  "type": "integer",
+                  "example": "25"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "male"
+                },
+                "dob": {
+                  "type": "string",
+                  "example": "01-01-2000"
+                },
+                "social_security_number": {
+                  "type": "string",
+                  "example": "Session 1 Event 1"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "afas215ad1d24sF2"
+                },
+                "street": {
+                  "type": "string",
+                  "example": "1107 Shivalik shilp 2"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "1107 Shivalik shilp 2"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "1107 Shivalik shilp 2"
+                },
+                "country_code": {
+                  "type": "string",
+                  "example": "1107 Shivalik shilp 2"
+                },
+                "country": {
+                  "type": "string",
+                  "example": "1107 Shivalik shilp 2"
+                },
+                "zip_code": {
+                  "type": "string",
+                  "example": "1107 Shivalik shilp 2"
+                }
+              }
+            }
+          }
+        },
+        "Patient_Update": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "string",
+              "example": "true"
+            },
+            "message": {
+              "type": "string",
+              "example": "data retrive successfully"
+            },
+            "data": {
+              "type": "object",
+              "example": "[]"
+            }
+          }
+        },
+        "400": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "string",
+              "example": "false"
+            },
+            "message": {
+              "type": "string",
+              "example": "data not retrive"
+            }
+          }
+        },
+        "401": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "string",
+              "example": "false"
+            },
+            "message": {
+              "type": "string",
+              "example": "data not retrive"
+            }
+          }
+        },
+        "Patient_Family": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "string",
+              "example": "true"
+            },
+            "message": {
+              "type": "string",
+              "example": "Show Patient family member Successfully."
+            },
+            "data": {
+              "type": "object",
+              "example": [
+                {
+                  "relation": "mother",
+                  "first_name": "Tonny",
+                  "middle_name": "k",
+                  "last_name": "Pathan",
+                  "patient_unique_id": "UP000001"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

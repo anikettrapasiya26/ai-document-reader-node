@@ -1,0 +1,527 @@
+{
+  "paths": {
+    "/signin": {
+      "post": {
+        "description": "SignIn",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "description": "user email",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "user password",
+                    "type": "string"
+                  }
+                },
+                "required": ["emaill", "password"]
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Authorization Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/signin"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Wrong password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Email not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/404"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "If Something Wrong",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signup": {
+      "post": {
+        "description": "signUp",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "description": "user first name",
+                    "type": "string"
+                  },
+                  "middle_name": {
+                    "description": "user middle name",
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "description": "user last name",
+                    "type": "string"
+                  },
+                  "email": {
+                    "description": "user email",
+                    "type": "string"
+                  },
+                  "country_code": {
+                    "description": "user country code",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "user phone",
+                    "type": "string"
+                  },
+                  "gender": {
+                    "description": "user gender",
+                    "type": "string"
+                  },
+                  "dob": {
+                    "description": "user dob",
+                    "type": "string"
+                  },
+                  "street": {
+                    "description": "user street",
+                    "type": "string"
+                  },
+                  "city": {
+                    "description": "user city",
+                    "type": "string"
+                  },
+                  "state": {
+                    "description": "user state",
+                    "type": "string"
+                  },
+                  "country": {
+                    "description": "user country",
+                    "type": "string"
+                  },
+                  "zip_code": {
+                    "description": "user zip_code",
+                    "type": "string"
+                  },
+                  "confirm_password": {
+                    "description": "user confirm password",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "user password",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "emaill",
+                  "password",
+                  "first_name",
+                  "last_name",
+                  "middle_name",
+                  "dob",
+                  "gender",
+                  "country_code",
+                  "phone",
+                  "street",
+                  "city",
+                  "state",
+                  "country",
+                  "zip_code",
+                  "confirm_password"
+                ]
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Authorization Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/signup"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "token not generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/401"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "signin": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "user login successfully"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "example": 1
+              },
+              "uuid": {
+                "type": "string",
+                "example": "8e6a6c9e-927e-47cd-b184-0b792539f370"
+              },
+              "patient_unique_code": {
+                "type": "string",
+                "example": "GJ000001"
+              },
+              "first_name": {
+                "type": "string",
+                "example": "test"
+              },
+              "middle_name": {
+                "type": "string",
+                "example": "test2"
+              },
+              "last_name": {
+                "type": "string",
+                "example": "test1"
+              },
+              "email": {
+                "type": "string",
+                "example": "test@gmail.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "1234567890"
+              },
+              "age": {
+                "type": "integer",
+                "example": "25"
+              },
+              "gender": {
+                "type": "string",
+                "example": "male"
+              },
+              "dob": {
+                "type": "string",
+                "example": "01-01-2000"
+              },
+              "social_security_number": {
+                "type": "string",
+                "example": "Session 1 Event 1"
+              },
+              "height": {
+                "type": "number",
+                "example": "5.8"
+              },
+              "weight": {
+                "type": "number",
+                "example": "65"
+              },
+              "password": {
+                "type": "string",
+                "example": "afas215ad1d24sF2"
+              },
+              "street": {
+                "type": "string",
+                "example": "1107 Shivalik shilp 2"
+              },
+              "city": {
+                "type": "string",
+                "example": "Ahmedabad"
+              },
+              "state": {
+                "type": "string",
+                "example": "Gujarat"
+              },
+              "country_code": {
+                "type": "string",
+                "example": "+91"
+              },
+              "country": {
+                "type": "string",
+                "example": "India"
+              },
+              "zip_code": {
+                "type": "string",
+                "example": "393939"
+              },
+              "remark": {
+                "type": "string",
+                "example": "1107 Shivalik shilp 2"
+              },
+              "is_delete": {
+                "type": "boolean",
+                "example": "false"
+              },
+              "is_active": {
+                "type": "boolean",
+                "example": "true"
+              },
+              "created_by": {
+                "type": "string",
+                "example": "a690398d-b835-4911-aa90-083cafa4db9e"
+              },
+              "updated_by": {
+                "type": "string",
+                "example": "1a690398d-b835-4911-aa90-083cafa4db9e"
+              },
+              "created_at": {
+                "type": "string",
+                "example": "2022-07-26 18:02:18.60883+05:30"
+              },
+              "updated_at": {
+                "type": "string",
+                "example": "2022-07-26 18:02:18.60883+05:30"
+              },
+              "token": {
+                "type": "string",
+                "example": "sjjhaldaksbhjaldjaksbdjkfnsndjffhwlafbvmnsfgsfsduysdgvjshhjvbyhfuysvhsdbvjhsddvhhdfjesgf"
+              },
+              "tokenData": {
+                "type": "object",
+                "properties": {
+                  "expiryDate": {
+                    "type": "string",
+                    "example": "2021-11-09T02:22:29.975Z"
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "6"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "signup": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "user Register successfully"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "example": 1
+              },
+              "uuid": {
+                "type": "string",
+                "example": "8e6a6c9e-927e-47cd-b184-0b792539f370"
+              },
+              "patient_unique_code": {
+                "type": "string",
+                "example": "GJ000001"
+              },
+              "first_name": {
+                "type": "string",
+                "example": "test"
+              },
+              "middle_name": {
+                "type": "string",
+                "example": "test2"
+              },
+              "last_name": {
+                "type": "string",
+                "example": "test1"
+              },
+              "email": {
+                "type": "string",
+                "example": "test@gmail.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "1234567890"
+              },
+              "age": {
+                "type": "integer",
+                "example": "25"
+              },
+              "gender": {
+                "type": "string",
+                "example": "male"
+              },
+              "dob": {
+                "type": "string",
+                "example": "01-01-2000"
+              },
+              "social_security_number": {
+                "type": "string",
+                "example": "Session 1 Event 1"
+              },
+              "height": {
+                "type": "number",
+                "example": "5.8"
+              },
+              "weight": {
+                "type": "number",
+                "example": "65"
+              },
+              "password": {
+                "type": "string",
+                "example": "afas215ad1d24sF2"
+              },
+              "street": {
+                "type": "string",
+                "example": "1107 Shivalik shilp 2"
+              },
+              "city": {
+                "type": "string",
+                "example": "Ahmedabad"
+              },
+              "state": {
+                "type": "string",
+                "example": "Gujarat"
+              },
+              "country_code": {
+                "type": "string",
+                "example": "+91"
+              },
+              "country": {
+                "type": "string",
+                "example": "India"
+              },
+              "zip_code": {
+                "type": "string",
+                "example": "393939"
+              },
+              "remark": {
+                "type": "string",
+                "example": "1107 Shivalik shilp 2"
+              },
+              "is_delete": {
+                "type": "boolean",
+                "example": "false"
+              },
+              "is_active": {
+                "type": "boolean",
+                "example": "true"
+              },
+              "created_by": {
+                "type": "string",
+                "example": "a690398d-b835-4911-aa90-083cafa4db9e"
+              },
+              "updated_by": {
+                "type": "string",
+                "example": "1a690398d-b835-4911-aa90-083cafa4db9e"
+              },
+              "created_at": {
+                "type": "string",
+                "example": "2022-07-26 18:02:18.60883+05:30"
+              },
+              "updated_at": {
+                "type": "string",
+                "example": "2022-07-26 18:02:18.60883+05:30"
+              },
+              "token": {
+                "type": "string",
+                "example": "sjjhaldaksbhjaldjaksbdjkfnsndjffhwlafbvmnsfgsfsduysdgvjshhjvbyhfuysvhsdbvjhsddvhhdfjesgf"
+              },
+              "tokenData": {
+                "type": "object",
+                "properties": {
+                  "expiryDate": {
+                    "type": "string",
+                    "example": "2021-11-09T02:22:29.975Z"
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "6a293fc4-9cb3-4526-872c-52ed34634dc5"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "Password is wrong"
+          }
+        }
+      },
+      "400": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "Password is wrong"
+          }
+        }
+      },
+      "403": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "Password is wrong"
+          }
+        }
+      }
+    }
+  }
+}

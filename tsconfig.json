@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es2015",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "module": "CommonJS",
+    "preserveSymlinks": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "noStrictGenericChecks": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "typeRoots": ["./src/typings", "./node_modules/@types"]
+  }
+}

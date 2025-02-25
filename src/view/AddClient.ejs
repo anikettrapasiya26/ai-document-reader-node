@@ -1,0 +1,268 @@
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <link rel="stylesheet" href="forgetPass.css"> -->
+    <!-- <link rel="stylesheet" href="../view/forgetPass.css"></link> -->
+    <style>
+      body {
+  font-weight: 400;
+}
+
+table {
+  border: 0;
+  padding: 0%;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+.table-content {
+  width: 100%;
+  border-spacing: 0px;
+  max-width: 600px;
+  align-items: center;
+  margin: auto;
+}
+
+.table-co {
+  width: 130%;
+  max-width: 600px;
+  border-spacing: 0px;
+}
+
+.td {
+  background-color: #ffa73b;
+  align-items: center;
+}
+
+.td_co {
+  align-items: center;
+  vertical-align: top;
+  padding: 20px 10px 0px 0px;
+}
+
+.td_content {
+  background-color: #ffa73b;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+
+.td_item,
+.td_last,
+.td_help,
+.td_col,
+.td_reply,
+.td_pen {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  color: #666666;
+}
+
+.td_item,
+.td_col,
+.td_reply,
+.td_pen {
+  background-color: #ffffff;
+}
+
+.td_item {
+  align-items: center;
+  vertical-align: top;
+  padding: 20px 20px 1px 20px;
+  border-radius: 4px 4px 0px 0px;
+  font-size: 26px;
+  line-height: 35px;
+}
+
+.td_col {
+  background-color: #ffffff;
+  align-items: left;
+  padding: 30px 30px 20px 30px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.td_reply {
+  background-color: #ffffff;
+  align-items: left;
+  padding: 0px 30px 20px 30px;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.td_pen {
+  background-color: #ffffff;
+  align-items: left;
+  padding: 0px 30px 40px 30px;
+  border-radius: 0px 0px 4px 4px;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.td_help {
+  background-color: #ffecd1;
+  text-align: center;
+  padding: 30px 30px 30px 30px;
+  border-radius: 4px 4px 4px 4px;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.td_last {
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 0px 30px 30px 30px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.color,
+.last,
+.help {
+  background-color: #f4f4f4;
+  align-items: center;
+}
+
+.color,
+.last {
+  padding: 0px 10px 0px 10px;
+}
+
+.help {
+  padding: 30px 10px 0px 10px;
+}
+
+img {
+  width: 180px;
+  height: 180px;
+  margin-right: 0%;
+  float: right;
+}
+
+h3,
+h2 {
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.h3 {
+  font-size: 24px;
+  margin: 13% 50% 05% 5%;
+  font: bold;
+  font-weight: bolder;
+  max-width: 600px;
+}
+
+.h3-col {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 9%;
+  line-height: 25px;
+}
+
+.link {
+  color: #ffa73b;
+}
+
+.h2 {
+  font-size: 20px;
+  color: #111111;
+}
+    </style>
+  </head>
+  <body>
+    <table class="table">
+      <!-- LOGO -->
+      <tr>
+        <td class="td">
+          <table class="table-co">
+            <tr>
+              <td class="td_co"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="td_content">
+          <table class="table-content">
+            <tr>
+              <td class="td_item">
+                <img src="https://st2.depositphotos.com/6809168/12123/v/950/depositphotos_121235332-stock-illustration-handshake-icon-vector.jpg" alt="image" />
+                <h4 class="h3">hello! </h4>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="color">
+          <table class="table-content">
+            <tr>
+              <td class="td_col">
+                <h3 style="text-transform: none;" class="h3-col">Your Mail id is : <%= email.toLowerCase() %></h3>
+                <h3 style="text-transform: none;" class="h3-col">Your login Password is : <%= password %></h3>
+
+                <p class="clink">
+                  Welcome to Advance Health System.
+                  please use this above credential to verification.
+                  Add this OTP in verification page & Show your email box for Forget Password
+                </p>
+              </td>
+            </tr>
+
+            <!-- COPY -->
+
+            <tr>
+              <td class="td_reply">
+                <p class="clink">
+                  If you have any questions,<br />just reply to this email:
+                <a class="link" href="mailto:<%= mailLink  %> "><%= mailLink  %></a
+                  ></br>
+                  we're always happy to help out.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_pen">
+                <p>Cheers,<br />Advance Health System Team.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="help">
+          <table class="table-content">
+            <tr>
+              <td class="td_help">
+                <h2 class="h2">Need more help?</h2>
+                <p>
+                  <a class="link"  href=<%= googleLink  %> target="_blank"
+                    >We&rsquo;re here to help you out</a
+                  >
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="last">
+          <table class="table-content">
+            <tr>
+              <td class="td_last">
+                <br />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

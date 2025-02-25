@@ -1,0 +1,384 @@
+{
+  "paths": {
+    "/forgot": {
+      "post": {
+        "description": "Send mail for forgot password link",
+        "parameters": [],
+        "tags": ["forgot_password"],
+        "produces": ["application/json"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "description": "send mail to get email from body",
+                    "type": "string"
+                  }
+                },
+                "required": ["Email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email send successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/frogot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/404"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/new_password/:email": {
+      "put": {
+        "description": "Update Password with valid Email_id  ",
+        "parameters": ["email"],
+        "tags": ["new_password"],
+        "produces": ["application/json"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "new_password": {
+                    "description": "send new password  ",
+                    "type": "string"
+                  }
+                },
+                "required": ["new_password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "reset password successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/new_password"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/404"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sendOtp": {
+      "post": {
+        "description": "OTP send in mail ",
+        "parameters": ["email"],
+        "tags": ["OTP"],
+        "produces": ["application/json"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sendOTP": {
+                    "description": "send otp in mail  ",
+                    "type": "string"
+                  }
+                },
+                "required": [" email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email sent to this Email adress for reset Password.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/sendOtp"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/404"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verifyOtp/:uuid": {
+      "put": {
+        "description": "verify Your OTP with valid Email_id  ",
+        "parameters": ["uuid"],
+        "tags": ["verify_otp"],
+        "produces": ["application/json"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "verify_otp": {
+                    "description": "verify OTP ",
+                    "type": "string"
+                  }
+                },
+                "required": ["otp"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OTP verify successesfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/verifyOtp/:uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Operation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/404"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "forgot": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "send email successfully"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string",
+                "example": "test@gmail.com"
+              }
+            }
+          }
+        }
+      },
+      "new_password": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "reset password successfully"
+          },
+          "data": {
+            "type": "object",
+            "example": "[new_password]"
+          }
+        }
+      },
+      "sendOtp": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "Email sent to this Email adress for reset Password."
+          },
+          "data": {
+            "type": "object",
+            "example": "[122345]"
+          }
+        }
+      },
+      "verify_otp": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "OTP verify successesfully."
+          },
+          "data": {
+            "type": "object",
+            "example": "[]"
+          }
+        }
+      },
+      "400": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "data not retrive "
+          }
+        }
+      },
+      "401": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "data not retrive "
+          }
+        }
+      },
+      "404": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "data not retrive "
+          }
+        }
+      }
+    }
+  }
+}

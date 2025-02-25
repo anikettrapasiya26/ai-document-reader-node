@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "AHS-Patient API",
+    "description": "Documentation for AHS-Patient API.",
+    "contact": {
+      "name": "Kinjal Dodiya",
+      "email": "kinjal@dataprophets.in"
+    },
+    "version": "1.0"
+  },
+  "servers": [{ "url": "http://localhost:5000/api/v1" }],
+  "paths": {},
+  "components": {},
+  "tags": [
+    {
+      "name": "User",
+      "description": "User management"
+    },
+    {
+      "name": "Session",
+      "description": "Session management"
+    },
+    {
+      "name": "Auth",
+      "description": "Authorization"
+    },
+    {
+      "name": "Label",
+      "description": "Label management"
+    },
+    {
+      "name": "Participant",
+      "description": "Event participants management"
+    },
+    {
+      "name": "Import",
+      "description": "Event Import file management"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "/reset_password": {
+    "put": {
+      "description": "Update Password with valid old_password  ",
+      "parameters": [],
+      "tags": ["reset_password"],
+      "produces": ["application/json"],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "description": "send email  ",
+                  "type": "string"
+                },
+                "old_password": {
+                  "description": "send old password  ",
+                  "type": "string"
+                },
+                "new_password": {
+                  "description": "set new password  ",
+                  "type": "string"
+                }
+              },
+              "required": ["new_password", "old_password"]
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "reset password successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/responses/reset_password"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Operation failed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/responses/400"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Operation failed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/responses/401"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Operation failed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/responses/404"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "new_password": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "true"
+          },
+          "message": {
+            "type": "string",
+            "example": "reset password successfully"
+          }
+        }
+      },
+      "400": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "data not retrive "
+          }
+        }
+      },
+      "401": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "data not retrive "
+          }
+        }
+      },
+      "404": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "false"
+          },
+          "message": {
+            "type": "string",
+            "example": "data not retrive "
+          }
+        }
+      }
+    }
+  }
+}
