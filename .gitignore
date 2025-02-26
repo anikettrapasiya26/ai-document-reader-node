@@ -62,6 +62,5 @@ typings/
 
 .npmrc
 
-dist/
 db/dist/
 uploads/
